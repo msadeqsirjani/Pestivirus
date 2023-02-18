@@ -3,13 +3,88 @@
            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-           xmlns:local="clr-namespace:Pestivirus"
            xmlns:hc="https://handyorg.github.io/handycontrol"
            xmlns:prism="http://prismlibrary.com/"
+           xmlns:viewmodels="clr-namespace:Pestivirus.ViewModels"
+           d:DataContext="{d:DesignInstance Type=viewmodels:DashboardViewModel}"
            mc:Ignorable="d"
            prism:ViewModelLocator.AutoWireViewModel="True"
            Title="{Binding Title}"
-           Height="450"
-           Width="800">
-    <Grid></Grid>
+           ShowTitle="True"
+           FontSize="16"
+           FontWeight="Bold"
+           WindowStartupLocation="CenterScreen"
+           Height="600"
+           Width="1030">
+    <hc:TransitioningContentControl>
+        <Grid Background="{StaticResource CloudDrawingBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.ColumnSpan="2">
+                <StackPanel HorizontalAlignment="Center"
+                            Orientation="Horizontal">
+                    <Button Width="300"
+                            Margin="10"
+                            HorizontalAlignment="Center"
+                            Content="Refresh"
+                            Command="{Binding LoadCountryCommand}" />
+                    <Label Style="{StaticResource LabelSuccess}"
+                           Width="300"
+                           Margin="10,0"
+                           HorizontalAlignment="Center"
+                           Content="{Binding Status}" />
+                    <Label Style="{StaticResource LabelDanger}"
+                           HorizontalAlignment="Right"
+                           Content="Coded By @msadeqsirjani" />
+                </StackPanel>
+                <hc:SearchBar Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+                              Style="{StaticResource SearchBarPlus}"
+                              Margin="10"
+                              hc:InfoElement.Placeholder="Search ..." />
+            </StackPanel>
+            <DataGrid Margin="10,0"
+                      Background="Transparent"
+                      SelectionMode="Single"
+                      Grid.Row="1"
+                      HeadersVisibility="All"
+                      RowHeaderWidth="60"
+                      AutoGenerateColumns="False"
+                      ItemsSource="{Binding Countries}"
+                      hc:DataGridAttach.ShowRowNumber="True">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn CanUserResize="False">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding FlagUri}"
+                                       Width="48"
+                                       Height="48"
+                                       Stretch="Uniform" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Binding="{Binding Title}"
+                                        Header="Country" />
+                    <DataGridTextColumn Binding="{Binding Cases}"
+                                        Header="Cases" />
+                    <DataGridTextColumn Binding="{Binding Deaths}"
+                                        Header="Deaths" />
+                    <DataGridTextColumn Binding="{Binding TodayDeaths}"
+                                        Header="Today Deaths" />
+                    <DataGridTextColumn Binding="{Binding TodayCases}"
+                                        Header="Today Cases" />
+                    <DataGridTextColumn Binding="{Binding Recovered}"
+                                        Header="Recovered" />
+                    <DataGridTextColumn Binding="{Binding Active}"
+                                        Header="Active" />
+                    <DataGridTextColumn Binding="{Binding Critical}"
+                                        Header="Critical" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </hc:TransitioningContentControl>
 </hc:Window>
