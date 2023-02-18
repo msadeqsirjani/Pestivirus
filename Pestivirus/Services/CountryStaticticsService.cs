@@ -2,7 +2,7 @@
 
 public class CountryStatisticsService : ICountryStatisticsService
 {
-    private const string _uri = "https://corona.lmao.ninja/v3/covid-19/countries?sort=cases";
+    private const string _uri = "http://localhost:5211/statistics";
 
     public async Task<IEnumerable<Country>> GetTopCases()
     {
@@ -20,7 +20,7 @@ public class CountryStatisticsService : ICountryStatisticsService
 
         return result.Select(country => new Country
         {
-            Title = country.Country,
+            Title = country.Title,
             Cases = country.Cases,
             Deaths = country.Deaths,
             TodayCases = country.TodayCases,
