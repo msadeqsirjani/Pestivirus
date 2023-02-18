@@ -12,4 +12,3 @@ public class Country
     public int Critical { get; set; }
     public string? FlagUri { get; set; }
 }
-
