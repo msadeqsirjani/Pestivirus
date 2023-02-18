@@ -8,12 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\cloud.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="HandyControls" Version="3.4.4" />
     <PackageReference Include="Prism.DryIoc" Version="8.1.97" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <Resource Include="Resources\cloud.png" />
   </ItemGroup>
 
 </Project>
