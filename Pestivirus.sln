@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33402.96
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pestivirus", "Pestivirus\Pestivirus.csproj", "{2D273E29-E259-4062-A103-81025FBDBD06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pestivirus", "Pestivirus\Pestivirus.csproj", "{2D273E29-E259-4062-A103-81025FBDBD06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pestivirus.Api", "Pestivirus.Api\Pestivirus.Api.csproj", "{A238B206-D6C4-421A-9D50-6E240FDBBB39}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2D273E29-E259-4062-A103-81025FBDBD06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D273E29-E259-4062-A103-81025FBDBD06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D273E29-E259-4062-A103-81025FBDBD06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A238B206-D6C4-421A-9D50-6E240FDBBB39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A238B206-D6C4-421A-9D50-6E240FDBBB39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A238B206-D6C4-421A-9D50-6E240FDBBB39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A238B206-D6C4-421A-9D50-6E240FDBBB39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
