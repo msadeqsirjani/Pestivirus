@@ -14,6 +14,8 @@ public class DashboardViewModel : BindableBase
         LoadAsync();
 
         ItemView.Filter = new Predicate<object>(country => Filter((Country)country));
+
+        Title = "Corona Virus Pandemic | Word Real-Time Statistics";
     }
 
     public DelegateCommand LoadCountryCommand { get; set; }
@@ -53,10 +55,12 @@ public class DashboardViewModel : BindableBase
 
     private async void LoadAsync()
     {
+        Countries.Clear();
+
         var countries = await _countryStatisticsService.GetTopCases();
 
         Countries.AddRange(countries);
 
-        Status = $"Updated {DateTime.Now.ToString("U")}";
+        Status = $"Updated {DateTime.Now:U}";
     }
 }
